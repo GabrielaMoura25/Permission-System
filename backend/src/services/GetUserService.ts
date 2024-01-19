@@ -10,6 +10,7 @@ class GetUserService {
         const user = await prismaClient.users.findFirst({
             where: { email },
             select: {
+                id: true,
                 firstname: true,
                 email: true,
                 permissions: {
@@ -26,8 +27,9 @@ class GetUserService {
 
         const formattedUser = {
             user: {
-                firstname: user?.firstname,
-                email: user?.email,
+                id: user.id,
+                firstname: user.firstname,
+                email: user.email,
             },
             permissions: user?.permissions.map(permission => permission.permission.name),
         };
