@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "test": "jest"
+    "dev": "npm run prisma:apply && npm run prisma:seed:dev && tsx watch src/server.ts",
+    "test": "jest",
+    "prisma:seed:dev": "ts-node src/prisma/seed.ts",
+    "prisma:apply": "prisma db push --schema=./prisma/schema.prisma"
   },
   "prisma": {
     "seed": "ts-node src/prisma/seed.ts"
