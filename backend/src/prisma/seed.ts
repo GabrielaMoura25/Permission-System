@@ -1,4 +1,4 @@
-import prismaClient  from './index';
+import prismaClient from './index'
 
 const usersData = [
   {
@@ -9,8 +9,8 @@ const usersData = [
       'user:profile:firstname:view',
       'user:profile:email:view',
       'user:profile:firstname:edit',
-      'user:profile:email:edit',
-    ],
+      'user:profile:email:edit'
+    ]
   },
   {
     firstname: 'Gabriela',
@@ -19,8 +19,8 @@ const usersData = [
       'user:profile:view',
       'user:profile:firstname:view',
       'user:profile:email:view',
-      'user:profile:email:edit',
-    ],
+      'user:profile:email:edit'
+    ]
   },
   {
     firstname: 'Fernando',
@@ -29,8 +29,8 @@ const usersData = [
       'user:profile:view',
       'user:profile:firstname:view',
       'user:profile:email:view',
-      'user:profile:firstname:edit',
-    ],
+      'user:profile:firstname:edit'
+    ]
   },
   {
     firstname: 'Lais',
@@ -38,49 +38,44 @@ const usersData = [
     permissions: [
       'user:profile:view',
       'user:profile:firstname:view',
-      'user:profile:email:view',
-    ],
-  },
-];
+      'user:profile:email:view'
+    ]
+  }
+]
 
-async function main() {
+async function main (): Promise<void> {
+  const existingUsers = await prismaClient.users.findMany()
 
-  const existingUsers = await prismaClient.users.findMany();
-  
   if (existingUsers.length > 0) {
     for (const user of existingUsers) {
-        await prismaClient.usersPermissions.deleteMany({
-            where: {
-                userId: user.id,
-            },
-        });
+      await prismaClient.usersPermissions.deleteMany({
+        where: {
+          userId: user.id
+        }
+      })
     }
-    await prismaClient.users.deleteMany();
-    console.log('Existing users deleted.');
+    await prismaClient.users.deleteMany()
+    console.log('Existing users deleted.')
   }
 
   for (const userData of usersData) {
-    const permissions = userData.permissions.map((permission: string) => ({ name: permission }));
+    const permissions = userData.permissions.map((permission: string) => ({ name: permission }))
     const user = await prismaClient.users.create({
       data: {
         firstname: userData.firstname,
         email: userData.email,
         permissions: {
           create: permissions.map((permissionData) => ({
-            permission: { create: permissionData },
-          })),
-        },
-      },
-    });
+            permission: { create: permissionData }
+          }))
+        }
+      }
+    })
 
-    console.log('User created:', user);
+    console.log('User created:', user)
   }
+
+  await prismaClient.$disconnect()
 }
 
-main()
-  .catch((error) => {
-    throw error;
-  })
-  .finally(async () => {
-    await prismaClient.$disconnect();
-  });
+void main()

@@ -1,21 +1,21 @@
-import { checkToken } from '../auth/JwtConfig';
-import { FastifyRequest, FastifyReply } from 'fastify';
+import { checkToken } from '../auth/JwtConfig'
+import { type FastifyRequest, type FastifyReply } from 'fastify'
 
-const validateToken = (req: FastifyRequest, res: FastifyReply, next: Function) => {
-    const { authorization } = req.headers;
+const validateToken = (req: FastifyRequest, res: FastifyReply, next: () => void): any => {
+  const { authorization } = req.headers
 
-    if(!authorization) {
-        return res.status(404).send({ message: 'Token Not Found' });
-    }
+  if (authorization == null) {
+    return res.status(404).send({ message: 'Token Not Found' })
+  }
 
-    const payload = checkToken(authorization);
-    if('hasError' in payload && payload.hasError) {
-        return res.status(401).send({ message: 'Expired Token' });
-    }
+  const payload = checkToken(authorization)
+  if ('hasError' in payload && payload.hasError) {
+    return res.status(401).send({ message: 'Expired Token' })
+  }
 
-    console.log(payload);
-    
-    next();
-};
+  console.log(payload)
 
-export default validateToken;
+  next()
+}
+
+export default validateToken
