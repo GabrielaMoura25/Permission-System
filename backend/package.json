@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
+    "start": "npm run prisma:apply && npm run prisma:seed:dev && ts-node src/server.ts", 
     "dev": "npm run prisma:apply && npm run prisma:seed:dev && tsx watch src/server.ts",
     "test": "jest",
     "prisma:seed:dev": "ts-node src/prisma/seed.ts",
