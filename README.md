@@ -19,7 +19,7 @@ The Sigma Project is a full-stack web application built with [Vite](https://vite
 - <span style="color: #5e83b3">Prisma</span>: Prisma is an Object-Relational Mapping (ORM) tool that facilitates interaction with databases. In this project, it is configured to connect to MongoDB.
 
 - <span style="color: #5e83b3">MongoDB</span>: A NoSQL database that offers scalability and flexibility. Prisma is configured to work with MongoDB.
-- 
+ 
 ## Features and Functionalities
 
 ## Basic HTTP Authentication:
