@@ -8,6 +8,10 @@ app.setErrorHandler(async (error, _, reply) => {
   await reply.code(400).send({ message: error.message })
 })
 
+void app.register(cors, {
+  origin: '*'
+})
+
 const start = async (): Promise<void> => {
   await app.register(cors)
   await app.register(routesPlugin)
