@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "14.x"
+    "node": "18"
   },
   "scripts": {
-    "build": "tsc && tsup src",
+    "build": "tsup src",
     "start": "node dist/server.js",
     "dev": "npm run prisma:apply && npm run prisma:seed:dev && tsx watch src/server.ts",
     "test": "jest",
