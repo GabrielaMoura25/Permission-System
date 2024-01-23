@@ -2,8 +2,10 @@ import axios from 'axios';
 
 export const api = () => {
 
-  const baseURL = process.env.REACT_APP_API_URL
+  const baseURL = process.env.API_URL
   console.log('string teste', process.env);
+  console.log('string teste', baseURL);
+  
     
   return axios.create({
     baseURL,
