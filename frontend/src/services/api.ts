@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const api = () => {
 
-  const baseURL = process.env.DATABASE_URL
+  const baseURL = process.env.API_URL
   console.log(baseURL);
     
   return axios.create({
