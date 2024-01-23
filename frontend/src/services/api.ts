@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const api = () => {
 
-    const baseURL = process.env.REACT_APP_API_BASEURL
+    const baseURL = import.meta.env.BASE_URL
     return axios.create({
       baseURL,
       headers: {
