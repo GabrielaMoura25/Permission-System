@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const api = () => {
 
-  const baseURL = process.env.API_URL
+  const baseURL = process.env.REACT_APP_API_URL
   console.log('string teste', process.env);
     
   return axios.create({
