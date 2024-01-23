@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const api = () => {
 
-    const baseURL = import.meta.env.BASE_URL
+    const baseURL = 'https://sigma-software-task-production.up.railway.app'
     return axios.create({
       baseURL,
       headers: {
