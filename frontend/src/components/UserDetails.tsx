@@ -34,7 +34,7 @@ export default function UserDetails() {
   useEffect(() => {
     async function getUser() {
       try {
-        const response = await api.get(`/user?email=${email}`);
+        const response = await api().get(`/user?email=${email}`);
         const { user: userData } = response.data;
         setUser(userData);
 
@@ -105,7 +105,7 @@ export default function UserDetails() {
           updateData.email = user?.email;
         }
 
-        await api.put(`/user?id=${id}`, updateData);
+        await api().put(`/user?id=${id}`, updateData);
 
         setEditMode(false);
 

@@ -19,7 +19,7 @@ describe('UserDetails', () => {
             permissions: ['user:profile:email:edit', 'user:profile:firstname:edit'],
         };
 
-        api.get = jest.fn().mockResolvedValueOnce({ data: { user } });
+        api().get = jest.fn().mockResolvedValueOnce({ data: { user } });
 
         render(
             <MemoryRouter initialEntries={['/user-details/john@example.com']}>
@@ -29,7 +29,7 @@ describe('UserDetails', () => {
             </MemoryRouter>
         );
 
-        expect(api.get).toHaveBeenCalledWith('/user?email=john@example.com');
+        expect(api().get).toHaveBeenCalledWith('/user?email=john@example.com');
 
         
 
@@ -48,7 +48,7 @@ describe('UserDetails', () => {
             permissions: [],
         };
 
-        api.get = jest.fn().mockResolvedValueOnce({ data: { user } });
+        api().get = jest.fn().mockResolvedValueOnce({ data: { user } });
 
         render(
             <MemoryRouter initialEntries={['/user-details/john@example.com']}>
@@ -58,7 +58,7 @@ describe('UserDetails', () => {
             </MemoryRouter>
         )
 
-        expect(api.get).toHaveBeenCalledWith('/user?email=john@example.com');
+        expect(api().get).toHaveBeenCalledWith('/user?email=john@example.com');
 
         expect(await screen.findByText('Firstname:')).toBeTruthy();
         expect(await screen.findByText('John')).toBeTruthy();
@@ -74,8 +74,8 @@ describe('UserDetails', () => {
             permissions: ['user:profile:email:edit', 'user:profile:firstname:edit'],
         };
 
-        api.get = jest.fn().mockResolvedValueOnce({ data: { user } });
-        api.put = jest.fn().mockResolvedValueOnce({} as AxiosResponse);
+        api().get = jest.fn().mockResolvedValueOnce({ data: { user } });
+        api().put = jest.fn().mockResolvedValueOnce({} as AxiosResponse);
 
         render(
             <MemoryRouter initialEntries={['/user-details/john@example.com']}>
@@ -109,7 +109,7 @@ describe('UserDetails', () => {
     });
 
     test('displays error message when user is not found', async () => {
-        api.get = jest.fn().mockRejectedValueOnce(new Error('User not found'));
+        api().get = jest.fn().mockRejectedValueOnce(new Error('User not found'));
 
         render(
             <MemoryRouter initialEntries={['/user-details/nonexistent@example.com']}>
@@ -119,7 +119,7 @@ describe('UserDetails', () => {
             </MemoryRouter>
         );
 
-        expect(api.get).toHaveBeenCalledWith('/user?email=nonexistent@example.com');
+        expect(api().get).toHaveBeenCalledWith('/user?email=nonexistent@example.com');
         expect(await screen.findByText('User not found!')).toBeTruthy();
     });
 });
