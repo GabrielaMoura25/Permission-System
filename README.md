@@ -28,7 +28,7 @@ The application uses basic HTTP authentication to ensure security in requests.
 
 ## Unit Testing:
 
-Unit tests are implemented to ensure code robustness. They can be executed using the `npm test`` command in the frontend or backend directory.
+Unit tests are implemented to ensure code robustness. They can be executed using the `npm test` command in the frontend or backend directory.
 
 ## Installation
 
