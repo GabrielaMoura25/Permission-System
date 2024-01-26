@@ -91,11 +91,11 @@ npm test
 ## Important
 
 - Remember that to perform searches on the site, you must use the emails registered in the database.
-- Data is already registered in the `prisma/seeds.ts`` file.
+- Data is already registered in the `prisma/seeds.ts` file.
 
 ## Populating the Database
 
-To add more data to the database, you can edit the `prisma/seeds.ts`` file with the desired data and then run the command:
+To add more data to the database, you can edit the `prisma/seeds.ts` file with the desired data and then run the command:
 
 ```bash
 npm run dev
