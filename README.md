@@ -1,6 +1,6 @@
-# Sigma-Software Project
+# Permission-System Project
 
-The Sigma Project is a full-stack web application built with [Vite](https://vitejs.dev/), [Prisma](https://www.prisma.io/), [MongoDB](https://www.mongodb.com/), [Node.js](https://nodejs.org/), [Fastify](https://www.fastify.io/) and [TypeScript](https://www.typescriptlang.org/). It provides an efficient development experience and utilizes the latest technologies to ensure high performance. It enables users to manage and view details of their profiles.
+The Permission-System is a full-stack web application built with [Vite](https://vitejs.dev/), [Prisma](https://www.prisma.io/), [MongoDB](https://www.mongodb.com/), [Node.js](https://nodejs.org/), [Fastify](https://www.fastify.io/) and [TypeScript](https://www.typescriptlang.org/). It provides an efficient development experience and utilizes the latest technologies to ensure high performance. It enables users to manage and view details of their profiles.
 
 ## Languages and Frameworks
 
@@ -39,11 +39,11 @@ Make sure you have Node.js and npm installed on your system.
 1. Clone the Repository:
 
 ```bash
-git clone https://github.com/GabrielaMoura25/Sigma-Software-task.git
+git clone https://github.com/GabrielaMoura25/Permission-System.git
 or
-git clone git@github.com:GabrielaMoura25/Sigma-Software-task.git
+git clone git@github.com:GabrielaMoura25/Permission-System.git
  
-cd Sigma-Software-task
+cd Permission-System
 ```
 
 2. Install Dependencies:
